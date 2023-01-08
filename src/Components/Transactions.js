@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
@@ -14,11 +15,16 @@ export default function Transactions() {
 
   return (
     <div>
-      <h3>Index</h3>
       <ul>
         {transactions &&
           transactions.map((transaction) => {
-            return <li key={transaction.id}>{transaction.item_name}</li>;
+            return (
+              <li key={transaction.id}>
+                <Link to={`/transactions/${transaction.id}`}>
+                  {transaction.item_name} - {transaction.amount}
+                </Link>
+              </li>
+            );
           })}
       </ul>
     </div>
