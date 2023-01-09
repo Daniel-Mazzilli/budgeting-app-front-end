@@ -1,9 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./TransactionForm.css";
+const API = process.env.REACT_APP_API_URL;
 
 export default function TransactionForm() {
+  const navigate = useNavigate();
   const [transaction, setTransaction] = useState({
-    itemName: "",
+    item_name: "",
     amount: 0,
     from: "",
     category: "",
@@ -20,13 +24,17 @@ export default function TransactionForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    axios
+      .post(`${API}/transactions`, transaction)
+      .then(() => navigate("/transactions"))
+      .catch((err) => console.log(err));
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="itemName">Item Name: </label>
+      <label htmlFor="item_name">Item Name: </label>
       <input
-        id="itemName"
+        id="item_name"
         type="text"
         value={transaction.itemName}
         onChange={handleChange}
@@ -55,10 +63,15 @@ export default function TransactionForm() {
         onChange={handleChange}
         required
       >
-        <option value="">choose a category</option>
+        <option value=""></option>
+        <option value="Expense">Expense</option>
         <option value="Income">Income</option>
-        <option value="Entertainment Expense">Entertainment Expense</option>
-        <option value="Exercise Expense">Exercise Expense</option>
+        <option value="Profit">Profit</option>
+        <option value="Purchase">Purchase</option>
+        <option value="Subscription">Subscription</option>
+        <option value="Taxes">Taxes</option>
+        <option value="Travel and Leisure">Travel and Leisure</option>
+        <option value="Utility Bills">Utility Bills</option>
       </select>
       <label htmlFor="date">Date: </label>
       <input

@@ -1,9 +1,10 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "../Pages/Home";
-import TransactionsPage from "../Pages/TransactionsPage";
-import TransactionPage from "../Pages/TransactionPage";
-import TransactionFormPage from "../Pages/TransactionFormPage";
-import FourOFourPage from "../Pages/FourOFourPage";
+import TransactionsIndex from "../Pages/TransactionsIndex" 
+import NewTransaction from "../Pages/NewTransaction";
+import TransactionDetails from "../Pages/TransactionDetails";
+import EditTransaction from "../Pages/EditTransaction";
+import FourOFour from "../Pages/FourOFour";
 
 export default function RouteComponent() {
   return (
@@ -11,14 +12,14 @@ export default function RouteComponent() {
       <Route path="/">
         <Route index element={<Home />} />
         <Route path="transactions">
-          <Route index element={<TransactionsPage />} />
+          <Route index element={<TransactionsIndex />} />
           <Route path=":id">
-            <Route index element={<TransactionPage />} />
-            <Route path="edit" element={<TransactionFormPage />} />
+            <Route index element={<TransactionDetails />} />
+            <Route path="edit" element={<EditTransaction />} />
           </Route>
-          <Route path="new" element={<TransactionFormPage />} />
+          <Route path="new" element={<NewTransaction />} />
         </Route>
-        <Route path="not-found" element={<FourOFourPage />} />
+        <Route path="not-found" element={<FourOFour />} />
       </Route>
       <Route path="*" element={<Navigate to="not-found" />} />
     </Routes>

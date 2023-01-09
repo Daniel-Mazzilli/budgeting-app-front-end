@@ -18,17 +18,26 @@ label {
   color: rgb(114, 8, 114);
 }
 
-input, select {
+input,
+select {
   border: 1px solid rgb(114, 8, 114);
   border-radius: 30px;
 }
 
 #amount {
-  text-align:right;
+  text-align: right;
 }
 
 #submit {
   grid-column: 2/3;
   width: 40%;
   margin-top: 20px;
+  border: none;
+  color: rgb(248, 219, 224);
+  background-color: rgb(114, 8, 114);
+}
+
+#submit:hover{
+  color: rgb(255, 223, 40);
+  cursor: pointer;
 }

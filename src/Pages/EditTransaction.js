@@ -1,10 +1,10 @@
 import TransactionForm from "../Components/TransactionForm";
-import "./TransactionFormPage.css"
+import "./EditTransaction.css"
 
-export default function TransactionFormPage() {
+export default function EditTransaction() {
   return (
     <div>
-      <h2>Create or Edit Transaction</h2>
+      <h2>Edit Transaction</h2>
       <TransactionForm />
     </div>
   );
