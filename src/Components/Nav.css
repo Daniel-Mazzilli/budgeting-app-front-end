@@ -17,30 +17,44 @@ nav a {
   font-weight: 500;
   text-decoration: none;
 }
-nav a img {
-    background-color: rgb(114, 8, 114);
-    height: 40px;
-    width: auto;
-    padding-top: 12px;
-    padding-right: 20px;
+
+#home-icon {
+  display: grid;
+  position: relative;
+  padding-right: 20px;
+  background-color: rgb(114, 8, 114);
+}
+
+#home-icon-light {
+  grid-row: 1;
+  grid-column: 1;
+  background-color: rgb(114, 8, 114);
+}
+
+#home-icon-hover {
+  z-index: 2;
+  grid-row: 1;
+  grid-column: 1;
+  background-color: rgb(114, 8, 114);
+  opacity: 0;
 }
 
 #link-new {
-    font-size: 22px;
-    border: 2px solid rgb(248, 219, 224);
-    background-color: #03629E;
-    border-radius: 20px;
-    padding: 6px 18px
+  font-size: 22px;
+  border: 2px solid rgb(248, 219, 224);
+  background-color: #03629e;
+  border-radius: 20px;
+  padding: 6px 18px;
 }
 
-nav a:hover{
-    color: rgb(255, 223, 40);
+nav a:hover {
+  color: rgb(255, 223, 40);
 }
 
-nav a img:hover {
-    transform: scale(1.1);
-}
-
-#link-new:hover{
+#link-new:hover {
   border: 2px solid rgb(255, 223, 40);
+}
+
+#home-icon-hover:hover {
+  opacity: 1;
 }
