@@ -3,7 +3,7 @@ nav {
   color: rgb(248, 219, 224);
   background-color: rgb(114, 8, 114);
   display: grid;
-  grid-template-columns: 0.8fr 8fr auto;
+  grid-template-columns: auto 8fr auto;
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 40px;
@@ -22,6 +22,7 @@ nav a img {
     height: 40px;
     width: auto;
     padding-top: 12px;
+    padding-right: 20px;
 }
 
 #link-new {
@@ -38,4 +39,8 @@ nav a:hover{
 
 nav a img:hover {
     transform: scale(1.1);
+}
+
+#link-new:hover{
+  border: 2px solid rgb(255, 223, 40);
 }
