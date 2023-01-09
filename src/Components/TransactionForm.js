@@ -1,11 +1,13 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./TransactionForm.css";
 const API = process.env.REACT_APP_API_URL;
 
 export default function TransactionForm() {
+  const { id } = useParams();
   const navigate = useNavigate();
+
   const [transaction, setTransaction] = useState({
     item_name: "",
     amount: 0,
@@ -13,6 +15,15 @@ export default function TransactionForm() {
     category: "",
     date: "",
   });
+
+  useEffect(() => {
+    if (id !== undefined) {
+      axios
+        .get(`${API}/transactions/${id}`)
+        .then((res) => setTransaction(res.data))
+        .catch((err) => console.log(err));
+    }
+  }, [id]);
 
   const handleChange = (event) => {
     let val = event.target.value;
@@ -36,7 +47,7 @@ export default function TransactionForm() {
       <input
         id="item_name"
         type="text"
-        value={transaction.itemName}
+        value={transaction.item_name}
         onChange={handleChange}
         required
       />
