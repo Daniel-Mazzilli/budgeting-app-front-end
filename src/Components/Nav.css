@@ -1,0 +1,41 @@
+nav {
+  height: 90px;
+  color: rgb(248, 219, 224);
+  background-color: rgb(114, 8, 114);
+  display: grid;
+  grid-template-columns: 0.8fr 8fr auto;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 0 10%;
+}
+
+nav a {
+  background-color: rgb(114, 8, 114);
+  color: rgb(248, 219, 224);
+  font-size: 42px;
+  font-weight: 500;
+  text-decoration: none;
+}
+nav a img {
+    background-color: rgb(114, 8, 114);
+    height: 40px;
+    width: auto;
+    padding-top: 12px;
+}
+
+#link-new {
+    font-size: 22px;
+    border: 2px solid rgb(248, 219, 224);
+    background-color: #03629E;
+    border-radius: 20px;
+    padding: 6px 18px
+}
+
+nav a:hover{
+    color: rgb(255, 223, 40);
+}
+
+nav a img:hover {
+    transform: scale(1.1);
+}
