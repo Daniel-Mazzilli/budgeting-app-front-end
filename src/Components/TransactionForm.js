@@ -35,10 +35,17 @@ export default function TransactionForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios
-      .post(`${API}/transactions`, transaction)
-      .then(() => navigate("/transactions"))
-      .catch((err) => console.log(err));
+    if (!id) {
+      axios
+        .post(`${API}/transactions`, transaction)
+        .then(() => navigate("/transactions"))
+        .catch((err) => console.log(err));
+    } else {
+      axios
+        .put(`${API}/transactions/${id}`, transaction)
+        .then(() => navigate(`/transactions/${id}`))
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
@@ -75,6 +82,7 @@ export default function TransactionForm() {
         required
       >
         <option value=""></option>
+        <option value="Deposit">Deposit</option>
         <option value="Expense">Expense</option>
         <option value="Income">Income</option>
         <option value="Profit">Profit</option>
@@ -92,7 +100,11 @@ export default function TransactionForm() {
         onChange={handleChange}
         required
       />
-      <input type="submit" id="submit" value="SUBMIT" />
+      <input
+        type="submit"
+        id="submit"
+        value={id ? "SUBMIT CHANGES" : "CREATE NEW ITEM"}
+      />
     </form>
   );
 }

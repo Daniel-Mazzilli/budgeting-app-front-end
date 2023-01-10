@@ -4,7 +4,7 @@ import "./NewTransaction.css"
 export default function NewTransaction() {
   return (
     <div>
-      <h2>New Transaction</h2>
+      <h2>Add a New Item</h2>
       <TransactionForm />
     </div>
   );

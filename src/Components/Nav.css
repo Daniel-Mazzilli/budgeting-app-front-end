@@ -3,11 +3,11 @@ nav {
   color: rgb(248, 219, 224);
   background-color: rgb(114, 8, 114);
   display: grid;
-  grid-template-columns: auto 8fr auto;
+  grid-template-columns: auto 8fr auto auto;
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 40px;
-  padding: 0 10%;
+  padding: 0 6%;
 }
 
 nav a {
@@ -45,6 +45,29 @@ nav a {
   background-color: #03629e;
   border-radius: 20px;
   padding: 6px 18px;
+}
+
+nav p {
+  background-color: rgb(114, 8, 114);
+  color: rgb(248, 219, 224);
+  padding-left: 30px;
+  font-weight: 700;
+  display: grid;
+  font-size: 14px;
+
+}
+
+nav p span {
+  background-color: rgb(114, 8, 114);
+  color: rgb(248, 219, 224);
+  font-style: italic;
+  text-align: center;
+  font-size: 18px;
+}
+
+nav p span span {
+  font-style: none;
+  font-size: 14px;
 }
 
 nav a:hover {

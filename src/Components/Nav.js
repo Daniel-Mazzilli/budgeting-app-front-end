@@ -1,9 +1,13 @@
+import { useContext } from "react";
+import { ContextData } from "../Provider/Provider";
 import { Link } from "react-router-dom";
 import HomeIconLight from "../Assets/home-icon-light.png";
 import HomeIconHover from "../Assets/home-icon-hover.png";
 import "./Nav.css";
 
 export default function Nav() {
+  const { balance } = useContext(ContextData);
+
   return (
     <nav>
       <Link to="/">
@@ -16,6 +20,11 @@ export default function Nav() {
       <Link id="link-new" to="/transactions/new">
         New Transaction
       </Link>
+      <p>
+        Account Balance:
+        <br />
+        <span>{balance} <span>USD</span></span>
+      </p>
     </nav>
   );
 }

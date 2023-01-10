@@ -1,0 +1,42 @@
+#unordered-list {
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  padding: 20px 40px;
+  margin: 40px 0;
+  display: grid;
+  background-color: rgb(248, 219, 224);
+  border: 3px solid rgb(114, 8, 114);
+  box-shadow: 6px 6px 3px 1px rgb(114, 8, 114, 0.2);
+  width: 50vw;
+  border-radius: 30px;
+}
+
+ul li {
+  display: grid;
+  grid-template-columns: 3fr 8fr 2fr;
+  list-style: none;
+  margin: 10px;
+  border-bottom: 1px solid rgb(114, 8, 114);
+}
+
+ul li a p,
+ul li p {
+  background-color: rgb(248, 219, 224);
+  color: rgb(114, 8, 114);
+}
+
+ul li a {
+  text-decoration: none;
+}
+
+#transaction-amount {
+  text-align: right;
+}
+
+ul li a p:hover {
+  color: rgb(226, 16, 16);
+  text-transform: uppercase;
+}

@@ -4,6 +4,7 @@
   background-color: rgb(250, 240, 240);
   margin: 0;
   font-family: "Sofia Sans", arial;
+  color: rgb(114, 8, 114);;
   /* padding: 0; */
   /* -webkit-font-smoothing: antialiased; */
   /* -moz-osx-font-smoothing: grayscale; */
@@ -12,4 +13,12 @@
 h1 {
   text-align: center;
   font-size: 40px;
+}
+
+.inRed {
+  color: rgb(226, 16, 16);
+}
+
+.inGreen {
+  color: #03629e;
 }

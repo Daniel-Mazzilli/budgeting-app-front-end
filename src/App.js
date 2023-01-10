@@ -1,14 +1,12 @@
-import Nav from "./Components/Nav";
+import Provider from "./Provider/Provider";
 import RouteComponent from "./Components/RouteComponent";
-import Footer from "./Components/Footer";
-import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Nav />
-      <RouteComponent />
-      <Footer />
+      <Provider>
+        <RouteComponent />
+      </Provider>
     </div>
   );
 }

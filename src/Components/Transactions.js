@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "./Transactions.css";
 const API = process.env.REACT_APP_API_URL;
 
 export default function Transactions() {
@@ -14,15 +15,17 @@ export default function Transactions() {
   }, []);
 
   return (
-    <div>
+    <div id="unordered-list">
       <ul>
         {transactions &&
           transactions.map((transaction) => {
             return (
               <li key={transaction.id}>
+                <p>{transaction.date}</p>
                 <Link to={`/transactions/${transaction.id}`}>
-                  {transaction.item_name} - {transaction.amount}
+                  <p>{transaction.item_name}</p>
                 </Link>
+                <p id="transaction-amount">{transaction.amount}</p>
               </li>
             );
           })}

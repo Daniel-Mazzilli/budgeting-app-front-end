@@ -30,7 +30,7 @@ select {
 
 #submit {
   grid-column: 2/3;
-  width: 40%;
+  width: 60%;
   margin-top: 20px;
   border: none;
   color: rgb(248, 219, 224);

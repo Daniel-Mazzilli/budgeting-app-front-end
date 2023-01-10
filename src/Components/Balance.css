@@ -1,0 +1,8 @@
+#total h2 span{
+    font-style: italic;
+}
+
+#total h2 span span{
+    font-style: none;
+    font-size: smaller;
+}
