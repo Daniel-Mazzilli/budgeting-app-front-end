@@ -1,4 +1,5 @@
 import { useState, useEffect, createContext } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Nav from "../Components/Nav";
 import Footer from "../Components/Footer";
@@ -11,6 +12,8 @@ function Provider({ children }) {
   const [balanceClass, setBalanceClass] = useState("");
   const [trigger, setTrigger] = useState(1);
   const [transactions, setTransactions] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -29,10 +32,27 @@ function Provider({ children }) {
       : setBalanceClass("inRed");
   }, [transactions]);
 
+  const handleDelete = (id) => {
+    axios
+      .delete(`${API}/transactions/${id}`)
+      .then(() => {
+        navigate(`/transactions`);
+        setTrigger(-trigger);
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div>
       <ContextData.Provider
-        value={{ transactions, balance, balanceClass, setTrigger, trigger }}
+        value={{
+          transactions,
+          balance,
+          balanceClass,
+          setTrigger,
+          trigger,
+          handleDelete,
+        }}
       >
         <Nav />
         <Footer />

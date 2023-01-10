@@ -37,9 +37,19 @@ export default function TransactionForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    let transactionReq = { ...transaction };
+    const cond1 = transaction.category !== "Deposit";
+    const cond2 = transaction.category !== "Income";
+    const cond3 = transaction.category !== "Profit";
+
+    if (cond1 && cond2 && cond3 && transactionReq.amount > 0) {
+      transactionReq = { ...transaction, amount: -transaction.amount };
+    }
+
     if (!id) {
       axios
-        .post(`${API}/transactions`, transaction)
+        .post(`${API}/transactions`, transactionReq)
         .then(() => {
           navigate("/transactions");
           setTrigger(-trigger);
@@ -47,7 +57,7 @@ export default function TransactionForm() {
         .catch((err) => console.log(err));
     } else {
       axios
-        .put(`${API}/transactions/${id}`, transaction)
+        .put(`${API}/transactions/${id}`, transactionReq)
         .then(() => {
           navigate(`/transactions/${id}`);
           setTrigger(-trigger);
