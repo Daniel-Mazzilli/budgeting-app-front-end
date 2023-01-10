@@ -42,7 +42,7 @@ nav a {
 #link-new {
   font-size: 22px;
   border: 2px solid rgb(248, 219, 224);
-  background-color: #03629e;
+  background-color: #0778A8;
   border-radius: 20px;
   padding: 6px 18px;
 }
@@ -71,11 +71,11 @@ nav p span span {
 }
 
 nav a:hover {
-  color: rgb(255, 223, 40);
+  color: #F5EA0A;
 }
 
 #link-new:hover {
-  border: 2px solid rgb(255, 223, 40);
+  border: 2px solid #F5EA0A;
 }
 
 #home-icon-hover:hover {

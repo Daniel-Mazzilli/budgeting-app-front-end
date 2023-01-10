@@ -40,6 +40,6 @@ section p span {
 }
 
 #details-buttons a:hover {
-  color: rgb(226, 16, 16);
+  color: #F53B59;
   text-transform: uppercase;
 }

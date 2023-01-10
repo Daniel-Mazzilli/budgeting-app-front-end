@@ -37,6 +37,6 @@ ul li a {
 }
 
 ul li a p:hover {
-  color: rgb(226, 16, 16);
+  color: #F53B59;
   text-transform: uppercase;
 }

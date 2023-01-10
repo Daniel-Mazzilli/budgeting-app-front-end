@@ -38,6 +38,6 @@ select {
 }
 
 #submit:hover{
-  color: rgb(255, 223, 40);
+  color: #F5EA0A;
   cursor: pointer;
 }

@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
 
 * {
   background-color: rgb(250, 240, 240);
   margin: 0;
   font-family: "Sofia Sans", arial;
-  color: rgb(114, 8, 114);;
+  color: rgb(114, 8, 114);
   /* padding: 0; */
   /* -webkit-font-smoothing: antialiased; */
   /* -moz-osx-font-smoothing: grayscale; */
@@ -16,9 +16,16 @@ h1 {
 }
 
 .inRed {
-  color: rgb(226, 16, 16);
+  /* color: rgb(226, 16, 16); */
+  color: #f53b59;
+}
+
+.inNeutral {
+  /* color: rgb(41, 41, 41); */
+  color: #22b5f5;
 }
 
 .inGreen {
-  color: #03629e;
+  /* color: #03629e; */
+  color: #0778a8;
 }
