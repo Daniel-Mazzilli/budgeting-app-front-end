@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { ContextData } from "../Provider/Provider";
 import { Link } from "react-router-dom";
-import HomeIconLight from "../Assets/home-icon-light.png";
-import HomeIconHover from "../Assets/home-icon-hover.png";
+import HomeIconLight from "../Assets/accounting-light.png";
+import HomeIconHover from "../Assets/accounting-hover.png";
 import "./Nav.css";
 
 export default function Nav() {

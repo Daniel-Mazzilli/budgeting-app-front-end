@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ContextData } from "../Provider/Provider";
 import { dateFormatter } from "../Functions/functions";
@@ -8,6 +8,7 @@ const API = process.env.REACT_APP_API_URL;
 
 export default function Transaction() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { handleDelete } = useContext(ContextData);
   const [transaction, setTransaction] = useState({});
 
@@ -15,14 +16,16 @@ export default function Transaction() {
     axios
       .get(`${API}/transactions/${id}`)
       .then((res) => setTransaction(res.data))
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        navigate("/not-found");
+      });
   }, [id]);
   return (
     <div id="transaction">
       {transaction.id && (
         <section>
           <h3>{transaction.item_name}</h3>
-          <br />
           <p>
             <span>Amount: </span>
             {transaction.amount}
@@ -41,7 +44,7 @@ export default function Transaction() {
             {transaction.category}
           </p>
           <p>
-            <span>Transaction ID: </span>
+            <span>ID: </span>
             {transaction.id}
           </p>
         </section>

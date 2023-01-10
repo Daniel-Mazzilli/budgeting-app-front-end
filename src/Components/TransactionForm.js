@@ -23,7 +23,10 @@ export default function TransactionForm() {
       axios
         .get(`${API}/transactions/${id}`)
         .then((res) => setTransaction(res.data))
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.log(err);
+          navigate("/not-found");
+        });
     }
   }, [id]);
 
