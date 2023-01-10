@@ -1,18 +1,13 @@
-import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { ContextData } from "../Provider/Provider";
 import { Link } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
+import { dateFormatter } from "../Functions/functions";
 import "./Transactions.css";
 const API = process.env.REACT_APP_API_URL;
 
 export default function Transactions() {
-  const [transactions, setTransactions] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(`${API}/transactions`)
-      .then((res) => setTransactions(res.data))
-      .catch((err) => console.log(err));
-  }, []);
+  const { transactions } = useContext(ContextData);
 
   return (
     <div id="unordered-list">
@@ -21,7 +16,7 @@ export default function Transactions() {
           transactions.map((transaction) => {
             return (
               <li key={transaction.id}>
-                <p>{transaction.date}</p>
+                <p>{dateFormatter(transaction.date)}</p>
                 <Link to={`/transactions/${transaction.id}`}>
                   <p>{transaction.item_name}</p>
                 </Link>
