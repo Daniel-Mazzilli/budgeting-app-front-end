@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { ContextData } from "../Provider/Provider";
 import axios from "axios";
 import "./TransactionForm.css";
 const API = process.env.REACT_APP_API_URL;
 
 export default function TransactionForm() {
   const { id } = useParams();
+  const { setTrigger, trigger } = useContext(ContextData);
   const navigate = useNavigate();
 
   const [transaction, setTransaction] = useState({
@@ -38,19 +40,25 @@ export default function TransactionForm() {
     if (!id) {
       axios
         .post(`${API}/transactions`, transaction)
-        .then(() => navigate("/transactions"))
+        .then(() => {
+          navigate("/transactions");
+          setTrigger(-trigger);
+        })
         .catch((err) => console.log(err));
     } else {
       axios
         .put(`${API}/transactions/${id}`, transaction)
-        .then(() => navigate(`/transactions/${id}`))
+        .then(() => {
+          navigate(`/transactions/${id}`);
+          setTrigger(-trigger);
+        })
         .catch((err) => console.log(err));
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="item_name">Item Name: </label>
+      <label htmlFor="item_name">Name: </label>
       <input
         id="item_name"
         type="text"

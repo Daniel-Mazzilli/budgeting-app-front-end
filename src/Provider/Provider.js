@@ -9,23 +9,31 @@ export const ContextData = createContext();
 function Provider({ children }) {
   const [balance, setBalance] = useState(0);
   const [balanceClass, setBalanceClass] = useState("");
+  const [trigger, setTrigger] = useState(1);
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
     axios
       .get(`${API}/transactions`)
-      .then((res) => {
-        setTransactions(res.data);
-        const total = res.data.reduce((acc, e) => acc + e.amount, 0);
-        setBalance(total);
-        total < 0 ? setBalanceClass("inRed") : setBalanceClass("inGreen");
-      })
+      .then((res) => setTransactions(res.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [trigger]);
+
+  useEffect(() => {
+    const total = transactions.reduce((acc, e) => acc + e.amount, 0);
+    setBalance(total);
+    total > 0
+      ? total > 1000
+        ? setBalanceClass("inGreen")
+        : setBalanceClass("inNeutral")
+      : setBalanceClass("inRed");
+  }, [transactions]);
 
   return (
     <div>
-      <ContextData.Provider value={{ transactions, balance, balanceClass }}>
+      <ContextData.Provider
+        value={{ transactions, balance, balanceClass, setTrigger, trigger }}
+      >
         <Nav />
         <Footer />
         {children}
