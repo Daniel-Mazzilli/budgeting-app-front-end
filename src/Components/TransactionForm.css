@@ -28,16 +28,32 @@ select {
   text-align: right;
 }
 
+form p {
+  border: none;
+  background-color: rgb(248, 219, 224);
+  padding-left: 0;
+  width: fit-content;
+  height: fit-content;
+  color: #f53b59;
+  font-size: 18px;
+}
+
 #submit {
   grid-column: 2/3;
   width: 60%;
-  margin-top: 20px;
+  margin-top: 26px;
   border: none;
+  padding: 0;
   color: rgb(248, 219, 224);
   background-color: rgb(114, 8, 114);
 }
 
-#submit:hover{
-  color: #F5EA0A;
+form p:hover {
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+#submit:hover {
+  color: #f5ea0a;
   cursor: pointer;
 }
