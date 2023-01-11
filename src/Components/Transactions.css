@@ -20,6 +20,8 @@ ul li {
   list-style: none;
   margin: 10px;
   border-bottom: 1px solid rgb(114, 8, 114);
+  column-gap: 4px;
+  background-color: rgb(248, 219, 224);
 }
 
 ul li a p,
@@ -30,6 +32,7 @@ ul li p, ul li h3 {
 
 ul li a {
   text-decoration: none;
+  background-color: rgb(248, 219, 224)
 }
 
 .amount-balance {
@@ -39,4 +42,37 @@ ul li a {
 ul li a p:hover {
   color: #F53B59;
   text-transform: uppercase;
+}
+
+@media (max-width: 880px){
+  ul li {
+    grid-template-columns: 3fr 4fr 3fr 3fr;
+  }
+}
+
+@media (max-width: 780px){
+  ul {
+    width: 60vw;
+  }
+  ul li {
+    grid-template-columns: 3fr 4fr 3fr 3fr;
+  }
+}
+
+@media (max-width: 680px){
+  ul {
+    width: 70vw;
+  }
+  ul li {
+    grid-template-columns: 3fr 4fr 3fr 3fr;
+  }
+}
+
+@media (max-width: 480px){
+  ul {
+    width: 90vw;
+  }
+  ul li {
+    grid-template-columns: 4fr 3fr 2fr 2fr;
+  }
 }
