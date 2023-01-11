@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ContextData } from "../Provider/Provider";
-import { dateFormatter } from "../Functions/functions";
+import { dateFormatter, amountFormatter } from "../Functions/functions";
 import "./Transaction.css";
 const API = process.env.REACT_APP_API_URL;
 
@@ -28,8 +28,7 @@ export default function Transaction() {
           <h3>{transaction.item_name}</h3>
           <p>
             <span>Amount: </span>
-            {transaction.amount}
-            <span className="smaller">USD</span>
+            {amountFormatter(transaction.amount)}
           </p>
           <p>
             <span>Date: </span>

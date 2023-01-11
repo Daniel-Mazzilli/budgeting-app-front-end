@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ContextData } from "../Provider/Provider";
+import { amountFormatter } from "../Functions/functions";
 import "./Balance.css";
 
 export default function BankTotal() {
@@ -8,7 +9,7 @@ export default function BankTotal() {
   return (
     <div id="total">
       <h2>
-        Account Balance: <span className={balanceClass}>{balance} <span>USD</span></span> 
+        Account Balance: <span className={balanceClass}>{amountFormatter(balance)}</span> 
       </h2>
     </div>
   );

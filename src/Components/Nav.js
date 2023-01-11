@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { ContextData } from "../Provider/Provider";
 import { Link } from "react-router-dom";
+import { amountFormatter } from "../Functions/functions";
 import HomeIconLight from "../Assets/accounting-light.png";
 import HomeIconHover from "../Assets/accounting-hover.png";
 import "./Nav.css";
@@ -23,7 +24,7 @@ export default function Nav() {
       <p>
         Account Balance:
         <br />
-        <span>{balance} <span>USD</span></span>
+        <span>{amountFormatter(balance)}</span>
       </p>
     </nav>
   );

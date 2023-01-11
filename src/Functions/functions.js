@@ -9,4 +9,29 @@ const dateFormatter = (date, month) => {
   return dateFormatted;
 };
 
-export { dateFormatter };
+const amountFormatter = (number) => {
+  let integer;
+  let decimals = "";
+  const isNegative = number < 0 ? true : false;
+
+  if (String(number).includes(".")) {
+    const numFixed = number.toFixed(2);
+    const numFixedSplit = numFixed.split(".");
+    integer = numFixedSplit[0];
+    decimals = Number(numFixedSplit[1]) ? `.${String(numFixedSplit[1])}` : "";
+  } else {
+    integer = number;
+  }
+  integer = String(integer)
+    .replace("-", "")
+    .split("")
+    .reverse()
+    .map((e, i) => ((i + 1) % 4 === 0 ? `${e},` : e))
+    .reverse()
+    .join("");
+
+  return isNegative ? `-$${integer}${decimals}` : `$${integer}${decimals}`;
+  // return integer
+};
+
+export { dateFormatter, amountFormatter };
