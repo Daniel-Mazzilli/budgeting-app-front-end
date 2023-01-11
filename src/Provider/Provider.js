@@ -25,7 +25,7 @@ function Provider({ children }) {
   useEffect(() => {
     const total = transactions.reduce((acc, e) => acc + e.amount, 0);
     setBalance(total);
-    total > 0
+    total >= 0
       ? total > 1000
         ? setBalanceClass("inGreen")
         : setBalanceClass("inNeutral")
