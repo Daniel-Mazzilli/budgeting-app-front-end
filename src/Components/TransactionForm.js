@@ -149,7 +149,15 @@ export default function TransactionForm() {
           value={id ? "SUBMIT CHANGES" : "CREATE NEW ITEM"}
         />
       </form>
-      {id && <Link to={`/transactions/${id}`}>Back</Link>}
+      {id ? (
+        <Link id="back" to={`/transactions/${id}`}>
+          Back
+        </Link>
+      ) : (
+        <Link id="back" to={`/transactions`}>
+          Transactions
+        </Link>
+      )}
     </>
   );
 }

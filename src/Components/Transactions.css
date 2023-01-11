@@ -16,14 +16,14 @@ ul {
 
 ul li {
   display: grid;
-  grid-template-columns: 3fr 7fr 2fr;
+  grid-template-columns: 3fr 6fr 3fr 3fr;
   list-style: none;
   margin: 10px;
   border-bottom: 1px solid rgb(114, 8, 114);
 }
 
 ul li a p,
-ul li p {
+ul li p, ul li h3 {
   background-color: rgb(248, 219, 224);
   color: rgb(114, 8, 114);
 }
@@ -32,7 +32,7 @@ ul li a {
   text-decoration: none;
 }
 
-#transaction-amount {
+.amount-balance {
   text-align: right;
 }
 

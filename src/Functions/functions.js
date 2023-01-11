@@ -1,9 +1,9 @@
-const dateFormatter = (date) => {
+const dateFormatter = (date, month) => {
   const dateSplit = date.split("-");
   const dateEdit = new Date(dateSplit);
   const dateFormatted = dateEdit.toLocaleString("default", {
     year: "numeric",
-    month: "long",
+    month: month,
     day: "numeric",
   });
   return dateFormatted;

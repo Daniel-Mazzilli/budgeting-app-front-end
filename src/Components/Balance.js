@@ -8,7 +8,7 @@ export default function BankTotal() {
   return (
     <div id="total">
       <h2>
-        Bank Account Total: <span className={balanceClass}>{balance} <span>USD</span></span> 
+        Account Balance: <span className={balanceClass}>{balance} <span>USD</span></span> 
       </h2>
     </div>
   );

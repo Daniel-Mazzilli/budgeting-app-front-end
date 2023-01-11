@@ -33,7 +33,7 @@ export default function Transaction() {
           </p>
           <p>
             <span>Date: </span>
-            {dateFormatter(transaction.date)}
+            {dateFormatter(transaction.date, "long")}
           </p>
           <p>
             <span>From: </span>

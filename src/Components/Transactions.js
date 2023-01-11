@@ -9,18 +9,37 @@ const API = process.env.REACT_APP_API_URL;
 export default function Transactions() {
   const { transactions } = useContext(ContextData);
 
+  const balanceProgress = (arr, index) => {
+    let balance = 0;
+    arr.forEach((e, i) => {
+      if (i <= index) {
+        balance += e.amount;
+      }
+    });
+    return balance;
+  };
+
   return (
     <div id="unordered-list">
       <ul>
+        <li>
+          <h3>Date</h3>
+          <h3>Name</h3>
+          <h3 className="amount-balance">Amount</h3>
+          <h3 className="amount-balance">Balance</h3>
+        </li>
         {transactions &&
-          transactions.map((transaction) => {
+          transactions.map((transaction, index) => {
             return (
               <li key={transaction.id}>
-                <p>{dateFormatter(transaction.date)}</p>
+                <p>{dateFormatter(transaction.date, "short")}</p>
                 <Link to={`/transactions/${transaction.id}`}>
                   <p>{transaction.item_name}</p>
                 </Link>
-                <p id="transaction-amount">{transaction.amount}</p>
+                <p className="amount-balance">{transaction.amount}</p>
+                <p className="amount-balance">
+                  {balanceProgress(transactions, index)}
+                </p>
               </li>
             );
           })}

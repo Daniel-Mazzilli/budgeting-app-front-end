@@ -48,6 +48,13 @@ form p {
   background-color: rgb(114, 8, 114);
 }
 
+#back {
+  text-decoration: none;
+  font-size: 18px;
+  display: grid;
+  justify-content: center;
+}
+
 form p:hover {
   cursor: pointer;
   text-transform: uppercase;
@@ -56,4 +63,9 @@ form p:hover {
 #submit:hover {
   color: #f5ea0a;
   cursor: pointer;
+}
+
+#back:hover {
+  color: #F53B59;
+  text-transform: uppercase;
 }
