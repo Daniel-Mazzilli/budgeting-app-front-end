@@ -11,7 +11,7 @@ const dateFormatter = (date, month) => {
 
 const amountFormatter = (number) => {
   let integer;
-  let decimals = "";
+  let decimals = ".00";
   const isNegative = number < 0 ? true : false;
 
   if (String(number).includes(".")) {
